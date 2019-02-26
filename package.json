@@ -1,0 +1,17 @@
+{
+  "name": "wisembly-movie-quizz",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Hiswe <yannick.aivayan@hiswe.net>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hiswe/wisembly-movie-quiz.git"
+  },
+  "scripts": {
+    "toc": "doctoc *.md"
+  },
+  "devDependencies": {
+    "doctoc": "^1.4.0"
+  }
+}

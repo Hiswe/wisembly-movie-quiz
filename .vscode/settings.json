@@ -1,0 +1,8 @@
+{
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "files.associations": {
+    ".wisemblyrc": "jsonc",
+    ".wisemblyrc_example": "jsonc"
+  }
+}
