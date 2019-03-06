@@ -1,0 +1,38 @@
+:root {
+  --c-primary: #07698d;
+  --c-accent: #46b489;
+  --c-grey: #515f65;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  font-size: 100%;
+  color: var(--c-grey);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+/* prevent zooming on double-tap
+https://stackoverflow.com/questions/46167604/iphone-html-disable-double-tap-to-zoom */
+button {
+  touch-action: manipulation;
+}
+/* accord native elements to website style */
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  text-align: inherit;
+}

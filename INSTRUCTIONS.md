@@ -46,8 +46,8 @@ Et voilà, plutôt basique, mais efficace et fun.
 - Juste en dessous, on présente aléatoirement un acteur et une affiche de film.
 - Le joueur doit dire si l'acteur a joué dans ce film (des boutons OUI / NON suffiront ici).
 
-_Hint 1_: Pour une meilleure expérience de jeu, il est préférable de se baser sur des données "populaires" de la base de données de films.
-_Hint 2_: Toujours dans le même but d'améliorer l'expérience de jeu, il faudrait éviter le fait que la bonne réponse soit majoritairement "non", mais essayer d'équilibrer les "oui" et les "non".
+- _Hint 1_: Pour une meilleure expérience de jeu, il est préférable de se baser sur des données "populaires" de la base de données de films.
+- _Hint 2_: Toujours dans le même but d'améliorer l'expérience de jeu, il faudrait éviter le fait que la bonne réponse soit majoritairement "non", mais essayer d'équilibrer les "oui" et les "non".
 
 ### Fin de partie
 

@@ -9,9 +9,20 @@
     "url": "git+https://github.com/Hiswe/wisembly-movie-quiz.git"
   },
   "scripts": {
+    "dev": "nuxt",
+    "get-api-data": "node bin/fetch-movie-data.js",
     "toc": "doctoc *.md"
   },
   "devDependencies": {
-    "doctoc": "^1.4.0"
+    "axios": "^0.18.0",
+    "doctoc": "^1.4.0",
+    "node-sass": "^4.11.0",
+    "pug": "^2.0.3",
+    "pug-plain-loader": "^1.0.0",
+    "rc": "^1.2.8",
+    "sass-loader": "^7.1.0"
+  },
+  "dependencies": {
+    "nuxt": "^2.4.5"
   }
 }
