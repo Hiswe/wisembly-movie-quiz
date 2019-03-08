@@ -1,6 +1,9 @@
 <script>
 export default {
   name: `wa-page-end`,
+  head: {
+    title: `game end`,
+  },
 }
 </script>
 

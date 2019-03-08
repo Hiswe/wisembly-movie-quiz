@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: `aw-layout-default`,
+  name: `wa-layout-default`,
 }
 </script>
 

@@ -5,5 +5,10 @@
     ".wisemblyrc": "jsonc",
     ".wisemblyrc-example": "jsonc"
   },
-  "cSpell.words": ["nuxt", "vuex", "wisembly"]
+  "cSpell.words": [
+    "highscores",
+    "nuxt",
+    "vuex",
+    "wisembly"
+  ]
 }

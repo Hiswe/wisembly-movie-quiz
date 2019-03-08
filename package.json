@@ -9,21 +9,37 @@
     "url": "git+https://github.com/Hiswe/wisembly-movie-quiz.git"
   },
   "scripts": {
-    "dev": "nuxt",
+    "dev": "run-p dev:*",
+    "dev:back": "nodemon api-server/index.js --ignore *async-db.json",
+    "dev:front": "nuxt",
     "get-api-data": "node bin/fetch-movie-data.js",
     "toc": "doctoc *.md"
+  },
+  "dependencies": {
+    "@koa/cors": "^2.2.3",
+    "@nuxtjs/axios": "^5.4.1",
+    "chalk": "^2.4.2",
+    "ip": "^1.1.5",
+    "koa": "^2.7.0",
+    "koa-body": "^4.1.0",
+    "koa-compress": "^3.0.0",
+    "koa-json": "^2.0.2",
+    "koa-logger": "^3.2.0",
+    "koa-router": "^7.4.0",
+    "lowdb": "^1.0.0",
+    "luxon": "^1.11.4",
+    "nuxt": "^2.4.5",
+    "shortid": "^2.2.14"
   },
   "devDependencies": {
     "axios": "^0.18.0",
     "doctoc": "^1.4.0",
     "node-sass": "^4.11.0",
+    "nodemon": "^1.18.10",
+    "npm-run-all": "^4.1.5",
     "pug": "^2.0.3",
     "pug-plain-loader": "^1.0.0",
     "rc": "^1.2.8",
     "sass-loader": "^7.1.0"
-  },
-  "dependencies": {
-    "luxon": "^1.11.4",
-    "nuxt": "^2.4.5"
   }
 }

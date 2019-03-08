@@ -1,5 +1,6 @@
 .wisemblyrc
 .nuxt
+async-db.json
 
 # Logs
 logs

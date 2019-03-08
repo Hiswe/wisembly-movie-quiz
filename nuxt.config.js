@@ -6,12 +6,17 @@ const config = rc(`wisembly`, {
 
 export default {
   css: [`@/assets/global.css`],
+  modules: [`@nuxtjs/axios`],
   plugins: [`@/plugins/global-wisembly-components.js`],
   router: {
     middleware: [`redirect-if-game`],
   },
   env: {
     GAME_DURATION_IN_SECOND: config.GAME_DURATION_IN_SECOND,
+  },
+  axios: {
+    baseURL: `http://localhost:4080`,
+    browserBaseURL: `http://localhost:4080`,
   },
   loading: {
     color: `#3adda2`,

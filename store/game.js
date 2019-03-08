@@ -7,6 +7,8 @@ export const GAME = `game`
 export const state = () => {
   return {
     duration: false,
+    question: false,
+    results: [],
   }
 }
 
