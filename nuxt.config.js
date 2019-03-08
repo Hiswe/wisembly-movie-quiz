@@ -1,15 +1,23 @@
 import rc from 'rc'
 
-const config = rc(`wisembly`)
+const config = rc(`wisembly`, {
+  GAME_DURATION_IN_SECOND: 60,
+})
 
 export default {
   css: [`@/assets/global.css`],
   plugins: [`@/plugins/global-wisembly-components.js`],
+  router: {
+    middleware: [`redirect-if-game`],
+  },
+  env: {
+    GAME_DURATION_IN_SECOND: config.GAME_DURATION_IN_SECOND,
+  },
   loading: {
     color: `#3adda2`,
   },
   head: {
-    titleTemplate: `Do Movie Quiz  – %s`,
+    titleTemplate: `Da Movie Quiz  – %s`,
     meta: [
       { charset: `utf-8` },
       { name: `viewport`, content: `width=device-width, initial-scale=1` },

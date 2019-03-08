@@ -6,6 +6,7 @@
     ".wisemblyrc_example": "jsonc"
   },
   "cSpell.words": [
+    "nuxt",
     "vuex",
     "wisembly"
   ]

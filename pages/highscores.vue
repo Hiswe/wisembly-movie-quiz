@@ -9,6 +9,8 @@ export default {
 
 <template lang="pug">
 wa-main(title="highscores")
+  p
+    nuxt-link(to="/") home
   p no score for now
 </template>
 
