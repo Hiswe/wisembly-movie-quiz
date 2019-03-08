@@ -3,6 +3,12 @@ import Vue from 'vue'
 // could be optimized later
 import { Duration } from 'luxon'
 
+import {
+  HIGHSCORES,
+  HIGHSCORES_LAST_SET,
+  HIGHSCORES_LAST_FLUSH,
+} from '~/store/highscores'
+
 const GAME_DURATION_IN_SECOND = process.env.GAME_DURATION_IN_SECOND
 
 export const GAME = `game`
@@ -61,11 +67,11 @@ export const mutations = {
     state.duration = state.duration - 1
   },
   [M_GAME_LOADING](state) {
-    state.loading = true
+    state.isLoading = true
   },
   [M_GAME_ADD_QUESTION](state, payload) {
     const { question } = payload
-    state.loading = false
+    state.isLoading = false
     state.questions.push(question)
   },
   [M_GAME_UPDATE_QUESTION](state, payload) {
@@ -75,6 +81,7 @@ export const mutations = {
     state.questions.splice(questionIndex, 1, question)
   },
   [M_GAME_END](state) {
+    state.questions = []
     state.duration = false
   },
 }
@@ -82,11 +89,12 @@ export const mutations = {
 export const actions = {
   async [GAME_START](vuexCtx) {
     const { $router, $axios } = this
-    const { commit } = vuexCtx
+    const { commit, dispatch } = vuexCtx
     commit(M_GAME_START)
     $router.push(`/play`)
     await $axios.$post(`/questions`)
     commit(M_GAME_LOADING)
+    dispatch(`${HIGHSCORES}/${HIGHSCORES_LAST_FLUSH}`, {}, { root: true })
     const question = await $axios.$get(`/questions`)
     commit(M_GAME_ADD_QUESTION, { question })
   },
@@ -94,8 +102,6 @@ export const actions = {
     const { $axios } = this
     const { commit } = vuexCtx
     const { question } = payload
-
-    console.log({ question })
     // this can be done on the background
     // we should go ASAP to the next question
     $axios
@@ -109,8 +115,10 @@ export const actions = {
   },
   async [GAME_TICK](vuexCtx) {
     const { $router } = this
-    const { commit, state } = vuexCtx
+    const { commit, state, dispatch, getters } = vuexCtx
     if (state.duration > 0) return commit(M_GAME_TICK)
+    const score = getters[GAME_GETTER_SCORE]
+    dispatch(`${HIGHSCORES}/${HIGHSCORES_LAST_SET}`, { score }, { root: true })
     commit(M_GAME_END)
     $router.push(`/end`)
   },

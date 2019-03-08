@@ -1,26 +1,27 @@
 <script>
-import { mapActions } from 'vuex'
-
-import { GAME, GAME_START } from '~/store/game'
+import WaButtonPlay from '~/components/button-play'
 
 export default {
   name: `aw-page-index`,
-  components: {},
+  components: {
+    WaButtonPlay,
+  },
   head: {
     title: `welcome`,
-  },
-  methods: {
-    ...mapActions(GAME, {
-      startGame: GAME_START,
-    }),
   },
 }
 </script>
 
 <template lang="pug">
 wa-main(title="Da Movie Quiz")
+  article
+    | You should answer correctly to the questions.
+    br
+    | Answer as many questions as you can during the imparted time…
+    br
+    | …and make it to the Highscores!! (maybe)
   p
-    button(type="button" @click="startGame") play!
+    wa-button-play play!
   p
     nuxt-link(to="/highscores") highscores
 </template>
