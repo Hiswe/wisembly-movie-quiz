@@ -21,7 +21,7 @@ export default {
   created() {
     this.intervalID = setInterval(() => this.tick(), 1000)
   },
-  destroy() {
+  beforeDestroy() {
     clearInterval(this.intervalID)
   },
   computed: {

@@ -55,7 +55,7 @@ export const actions = {
     const { commit, state } = vuexCtx
     if (state.duration > 0) return commit(M_GAME_TICK)
     commit(M_GAME_END)
-    $router.push(`/highscores`)
+    $router.push(`/end`)
   },
   async [GAME_QUIT](vuexCtx) {
     const { $router } = this
