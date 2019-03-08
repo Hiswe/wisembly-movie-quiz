@@ -14,7 +14,7 @@ const config = require('./config')
 
 const app = new Koa()
 
-app.use(bodyParser())
+app.use(bodyParser({}))
 app.use(compress())
 app.use(json())
 app.use(logger())
@@ -46,12 +46,16 @@ app.use(async function handleApiError(ctx, next) {
 //----- ROUTER
 
 const highscores = require('./highscores')
+const questions = require('./questions')
 
 app.use(cors({}))
 
 const apiRouter = new Router()
 
 apiRouter.get(`/highscores`, highscores.list)
+apiRouter.get(`/questions`, questions.readRandom)
+apiRouter.post(`/questions`, questions.flush)
+apiRouter.put(`/questions/:id`, questions.answerQuestion)
 
 app.use(apiRouter.routes())
 app.use(apiRouter.allowedMethods())

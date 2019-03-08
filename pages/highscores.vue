@@ -15,7 +15,7 @@ export default {
   computed: {
     ...mapState(HIGHSCORES, {
       highscores: state => state.list,
-      loading: state => state.loading,
+      isLoading: state => state.isLoading,
     }),
   },
 }
@@ -25,9 +25,9 @@ export default {
 wa-main(title="highscores")
   p
     nuxt-link(to="/") home
-  p(v-if="loading") loading
-  ol(v-if="!loading && highscores.length")
-    li(v-for="highscore in highscores")
+  p(v-if="isLoading") …loading…
+  ol(v-if="!isLoading && highscores.length")
+    li(v-for="highscore in highscores" :key="highscore.id")
       span {{highscore.name}}
       span {{highscore.score}}
 </template>

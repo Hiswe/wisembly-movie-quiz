@@ -1,11 +1,14 @@
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapGetters, mapState } from 'vuex'
 
 import {
   GAME,
   GAME_QUIT,
   GAME_TICK,
+  GAME_ANSWER,
   GAME_GETTER_REMAINING_TIME,
+  GAME_GETTER_LAST_QUESTION,
+  GAME_GETTER_SCORE,
 } from '~/store/game'
 
 export default {
@@ -27,12 +30,34 @@ export default {
   computed: {
     ...mapGetters(GAME, {
       remainingTime: GAME_GETTER_REMAINING_TIME,
+      question: GAME_GETTER_LAST_QUESTION,
+      score: GAME_GETTER_SCORE,
+    }),
+    ...mapState(GAME, {
+      isLoading: state => state.isLoading,
     }),
   },
   methods: {
+    answerYes() {
+      this.answer({
+        question: {
+          ...this.question,
+          answer: true,
+        },
+      })
+    },
+    answerNo() {
+      this.answer({
+        question: {
+          ...this.question,
+          answer: false,
+        },
+      })
+    },
     ...mapActions(GAME, {
       rageQuit: GAME_QUIT,
       tick: GAME_TICK,
+      answer: GAME_ANSWER,
     }),
   },
 }
@@ -41,5 +66,12 @@ export default {
 <template lang="pug">
 wa-main(title="play")
   p {{ remainingTime }}
+  p score: {{ score }}
+  p(v-if="isLoading") …loading…
+  div(v-if="question")
+    p id: {{ question.id }}
+    p {{ question.text }}
+    button(@click="answerYes" :disabled="isLoading") YES
+    button(@click="answerNo" :disabled="isLoading") NO
   button(type="button" @click="rageQuit") rage quite
 </template>
