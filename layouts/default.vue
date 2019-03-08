@@ -5,6 +5,5 @@ export default {
 </script>
 
 <template lang="pug">
-main(role="main")
-  nuxt
+nuxt
 </template>

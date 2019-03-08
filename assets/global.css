@@ -1,7 +1,9 @@
 :root {
-  --c-primary: #07698d;
-  --c-accent: #46b489;
-  --c-grey: #515f65;
+  --c-primary: hsl(196, 91%, 29%);
+  --c-accent: hsl(157, 44%, 49%);
+  --c-grey: hsl(198, 11%, 36%);
+  --c-grey-lighter: hsl(198, 11%, 56%);
+  --c-grey-lightest: hsl(198, 11%, 76%);
 }
 
 *,

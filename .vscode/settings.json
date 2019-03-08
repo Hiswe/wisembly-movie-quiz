@@ -4,5 +4,9 @@
   "files.associations": {
     ".wisemblyrc": "jsonc",
     ".wisemblyrc_example": "jsonc"
-  }
+  },
+  "cSpell.words": [
+    "vuex",
+    "wisembly"
+  ]
 }
