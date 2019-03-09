@@ -14,6 +14,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    big: {
+      type: Boolean,
+      default: false,
+    },
   },
   methods: {
     onClick() {
@@ -25,6 +29,7 @@ export default {
       return {
         'q-button--secondary': this.secondary,
         'q-button--disabled': this.disabled,
+        'q-button--big': this.big,
       }
     },
   },
@@ -68,5 +73,8 @@ button.q-button(
   color: var(--c-grey-lighter);
   background-color: var(--c-grey-lightest);
   cursor: not-allowed;
+}
+.q-button--big {
+  font-size: 1.3em;
 }
 </style>

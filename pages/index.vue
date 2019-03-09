@@ -14,6 +14,8 @@ export default {
 
 <template lang="pug">
 q-main(title="Da Movie Quiz")
+  p
+    nuxt-link(to="/highscores") highscores
   article
     | You should answer correctly to the questions.
     br
@@ -22,8 +24,6 @@ q-main(title="Da Movie Quiz")
     | …and make it to the Highscores!! (maybe)
   p
     q-button-play play!
-  p
-    nuxt-link(to="/highscores") highscores
 </template>
 
 <style lang="scss" scoped>

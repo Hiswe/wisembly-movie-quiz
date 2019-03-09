@@ -55,8 +55,10 @@ export default {
 //- if needed add an entry to the dashboard
 q-main(title="That's all Folks")
   p
+    nuxt-link(to="/highscores") highscores
+  p
     | finale score:
-    strong {{score}}
+    strong {{score | numeric}}
   form(v-if="hasBetterScore" @submit.prevent="onSubmit")
     p
       | WOW, you've been doing great!
@@ -71,8 +73,7 @@ q-main(title="That's all Folks")
       q-button.q-fieldset__button(type="submit" secondary) ok
   p
     q-button-play play again!
-  p
-    nuxt-link(to="/") highscores
+
 </template>
 
 <style lang="scss" scoped>

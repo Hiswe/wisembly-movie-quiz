@@ -8,9 +8,18 @@
   --c-grey: hsl(198, 11%, 36%);
   --c-grey-lighter: hsl(198, 11%, 56%);
   --c-grey-lightest: hsl(198, 11%, 76%);
+  --c-white-darkest: hsl(198, 11%, 86%);
+  --c-white-darker: hsl(198, 11%, 96%);
+  --c-success: hsl(217, 100%, 64%);
 
   --border-radius: 0.3rem;
   --gutter: 1.5rem;
+  --half-gutter: 0.75rem;
+
+  --font-monospace: Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console',
+    'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
+    'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier,
+    monospace;
 }
 
 *,
@@ -32,6 +41,11 @@ body {
   margin: 0;
   padding: 0;
 }
+
+body {
+  padding: 0 var(--gutter) var(--gutter);
+  line-height: 1.5;
+}
 /* prevent zooming on double-tap
 https://stackoverflow.com/questions/46167604/iphone-html-disable-double-tap-to-zoom */
 button {
@@ -44,4 +58,9 @@ textarea,
 select {
   font: inherit;
   text-align: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: var(--c-success);
 }

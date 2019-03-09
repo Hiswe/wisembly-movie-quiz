@@ -20,5 +20,7 @@ main.q-main(role="main")
 <style lang="scss" scoped>
 .q-main {
   text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
 }
 </style>

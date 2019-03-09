@@ -2,7 +2,6 @@
 import { mapActions } from 'vuex'
 
 import { GAME, GAME_START } from '~/store/game'
-import QButton from '~/components/ui/button'
 
 export default {
   name: `q-button-play`,
@@ -15,6 +14,6 @@ export default {
 </script>
 
 <template lang="pug">
-q-button(@click="startGame")
+q-button(@click="startGame" big)
   slot
 </template>
