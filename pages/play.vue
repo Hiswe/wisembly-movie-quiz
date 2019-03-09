@@ -68,8 +68,8 @@ q-main(title="play")
   p score: {{ score | number }}
   p(v-if="isLoading") …loading…
   div(v-if="question")
-    p id: {{ question.id }}
-    p {{ question.text }}
+    p(v-html="question.text")
+    img(:src="question.image")
     q-button(@click="answerYes" :disabled="isLoading") YES
     q-button(@click="answerNo" :disabled="isLoading" secondary) NO
   button(type="button" @click="rageQuit") rage quite

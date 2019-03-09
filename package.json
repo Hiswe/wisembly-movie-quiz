@@ -26,6 +26,7 @@
     "koa-json": "^2.0.2",
     "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
+    "lodash.shuffle": "^4.2.0",
     "lowdb": "^1.0.0",
     "luxon": "^1.11.4",
     "nuxt": "^2.4.5",

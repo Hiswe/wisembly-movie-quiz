@@ -22,7 +22,7 @@ export default {
 </script>
 
 <template lang="pug">
-wa-main(title="highscores")
+q-main(title="highscores")
   p
     nuxt-link(to="/") home
   p(v-if="isLoading  && !highscores.length") …loading…

@@ -49,7 +49,7 @@ q-main(title="That's all Folks")
       br
       | You've made it to the highscores!
     .q-fieldset(role="group")
-      q-text-field.q-fieldset__input(v-model="name")
+      q-text-field.q-fieldset__input(v-model="name" name="name")
       q-button.q-fieldset__button(type="submit" secondary) ok
   p
     q-button-play play again!
