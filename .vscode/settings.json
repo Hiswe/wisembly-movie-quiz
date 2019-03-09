@@ -2,8 +2,13 @@
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
   "files.associations": {
-    ".quizzrc": "jsonc",
-    ".quizzrc-example": "jsonc"
+    ".quizrc": "jsonc",
+    ".quizrc-example": "jsonc"
   },
-  "cSpell.words": ["highscores", "nuxt", "vuex"]
+  "cSpell.words": [
+    "highscore",
+    "highscores",
+    "nuxt",
+    "vuex"
+  ]
 }

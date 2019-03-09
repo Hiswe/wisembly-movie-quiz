@@ -13,6 +13,10 @@ export default {
     placeholder: {
       type: String,
     },
+    required: {
+      type: Boolean,
+      default: false,
+    },
     readonly: {
       type: Boolean,
       default: false,
@@ -38,6 +42,7 @@ input.q-text-field(
   :value="value"
   :name="name"
   :placeholder="placeholder"
+  :required="required"
   :readonly="readonly"
   :disabled="disabled"
   @input="onInput"

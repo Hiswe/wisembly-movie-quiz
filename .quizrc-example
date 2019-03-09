@@ -1,4 +1,9 @@
 {
+  // this is the themoviedb api key
+  // • https://www.themoviedb.org/documentation/api
+  // • this is only needed if we want to refresh movies data
   "API_KEY": "your-api-key",
+  // How long a game last
+  // • default is 60 seconds
   "GAME_DURATION_IN_SECOND": 60
 }

@@ -1,11 +1,12 @@
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapState, mapGetters, mapActions } from 'vuex'
 
 import QButtonPlay from '~/components/button-play'
 import QTextField from '~/components/ui/text-field'
 import {
   HIGHSCORES,
   HIGHSCORES_GETTER_HAS_BETTER_SCORE,
+  HIGHSCORES_LAST_SAVE,
 } from '~/store/highscores'
 
 export default {
@@ -20,6 +21,7 @@ export default {
   data() {
     return {
       name: ``,
+      error: false,
     }
   },
   computed: {
@@ -31,7 +33,19 @@ export default {
     }),
   },
   methods: {
-    saveHighscore() {},
+    onSubmit() {
+      if (!this.name) return (this.error = true)
+      this.error = false
+      this.saveHighscore({
+        highscore: {
+          name: this.name,
+          score: this.score,
+        },
+      })
+    },
+    ...mapActions(HIGHSCORES, {
+      saveHighscore: HIGHSCORES_LAST_SAVE,
+    }),
   },
 }
 </script>
@@ -43,13 +57,17 @@ q-main(title="That's all Folks")
   p
     | finale score:
     strong {{score}}
-  form(v-if="hasBetterScore" @submit.prevent="saveHighscore")
+  form(v-if="hasBetterScore" @submit.prevent="onSubmit")
     p
       | WOW, you've been doing great!
       br
       | You've made it to the highscores!
     .q-fieldset(role="group")
-      q-text-field.q-fieldset__input(v-model="name" name="name")
+      q-text-field.q-fieldset__input(
+        v-model="name"
+        name="name"
+        required
+      )
       q-button.q-fieldset__button(type="submit" secondary) ok
   p
     q-button-play play again!

@@ -53,6 +53,7 @@ app.use(cors({}))
 const apiRouter = new Router()
 
 apiRouter.get(`/highscores`, highscores.list)
+apiRouter.post(`/highscores`, highscores.create)
 apiRouter.get(`/questions`, questions.readRandom)
 apiRouter.post(`/questions`, questions.flush)
 apiRouter.put(`/questions/:id`, questions.answerQuestion)
