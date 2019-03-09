@@ -4,7 +4,7 @@ const rc = require('rc')
 
 const pkg = require('../package.json')
 
-const config = rc(`wisembly`, {})
+const config = rc(`quiz`, {})
 
 config.VERSION = pkg.version
 

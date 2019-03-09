@@ -2,13 +2,8 @@
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
   "files.associations": {
-    ".wisemblyrc": "jsonc",
-    ".wisemblyrc-example": "jsonc"
+    ".quizzrc": "jsonc",
+    ".quizzrc-example": "jsonc"
   },
-  "cSpell.words": [
-    "highscores",
-    "nuxt",
-    "vuex",
-    "wisembly"
-  ]
+  "cSpell.words": ["highscores", "nuxt", "vuex"]
 }

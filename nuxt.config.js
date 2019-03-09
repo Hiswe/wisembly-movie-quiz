@@ -1,15 +1,15 @@
 import rc from 'rc'
 
-const config = rc(`wisembly`, {
+const config = rc(`quiz`, {
   GAME_DURATION_IN_SECOND: 60,
 })
 
 export default {
   css: [`@/assets/global.css`],
   modules: [`@nuxtjs/axios`],
-  plugins: [`@/plugins/global-wisembly-components.js`],
+  plugins: [`@/plugins/global-components.js`],
   router: {
-    middleware: [`redirect-if-game`],
+    middleware: [`state-route-redirections`],
   },
   env: {
     GAME_DURATION_IN_SECOND: config.GAME_DURATION_IN_SECOND,

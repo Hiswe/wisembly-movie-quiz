@@ -1,16 +1,18 @@
 <script>
 import { mapState, mapGetters } from 'vuex'
 
-import WaButtonPlay from '~/components/button-play'
+import QButtonPlay from '~/components/button-play'
+import QTextField from '~/components/ui/text-field'
 import {
   HIGHSCORES,
   HIGHSCORES_GETTER_HAS_BETTER_SCORE,
 } from '~/store/highscores'
 
 export default {
-  name: `wa-page-end`,
+  name: `q-page-end`,
   components: {
-    WaButtonPlay,
+    QButtonPlay,
+    QTextField,
   },
   head: {
     title: `game end`,
@@ -37,7 +39,7 @@ export default {
 <template lang="pug">
 //- this will display score
 //- if needed add an entry to the dashboard
-wa-main(title="That's all Folks")
+q-main(title="That's all Folks")
   p
     | finale score:
     strong {{score}}
@@ -46,11 +48,27 @@ wa-main(title="That's all Folks")
       | WOW, you've been doing great!
       br
       | You've made it to the highscores!
-    input(v-model="name")
-    button(type="submit") I want to be remembered
+    .q-fieldset(role="group")
+      q-text-field.q-fieldset__input(v-model="name")
+      q-button.q-fieldset__button(type="submit" secondary) ok
   p
-    wa-button-play play again!
+    q-button-play play again!
   p
     nuxt-link(to="/") highscores
 </template>
 
+<style lang="scss" scoped>
+.q-fieldset {
+  max-width: 300px;
+  display: flex;
+  margin: 0 auto;
+}
+.q-fieldset__input {
+  flex: 1 0 auto;
+  margin: 0;
+  text-align: left;
+}
+.q-fieldset__button {
+  margin: 0 0 0 var(--gutter);
+}
+</style>

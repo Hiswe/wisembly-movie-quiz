@@ -1,9 +1,16 @@
 :root {
   --c-primary: hsl(196, 91%, 29%);
+  --c-primary-darker: hsl(196, 91%, 19%);
+  --c-secondary: hsl(12, 90%, 70%);
+  --c-secondary-darker: hsl(12, 90%, 60%);
   --c-accent: hsl(157, 44%, 49%);
+  --c-accent-darker: hsl(157, 44%, 39%);
   --c-grey: hsl(198, 11%, 36%);
   --c-grey-lighter: hsl(198, 11%, 56%);
   --c-grey-lightest: hsl(198, 11%, 76%);
+
+  --border-radius: 0.3rem;
+  --gutter: 1.5rem;
 }
 
 *,

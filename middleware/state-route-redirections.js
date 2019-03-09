@@ -1,6 +1,6 @@
 import { GAME, GAME_GETTER_HAS_GAME } from '~/store/game'
 
-export default function redirectIfGame(nuxtCtx) {
+export default function stateRouteRedirections(nuxtCtx) {
   const { store, redirect, route } = nuxtCtx
 
   const hasGame = store.getters[`${GAME}/${GAME_GETTER_HAS_GAME}`]

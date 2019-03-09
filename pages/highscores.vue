@@ -4,7 +4,7 @@ import { mapState } from 'vuex'
 import { HIGHSCORES, HIGHSCORES_LIST } from '~/store/highscores'
 
 export default {
-  name: `wa-highscores`,
+  name: `q-highscores`,
   head: {
     title: `Highscores`,
   },
@@ -33,7 +33,4 @@ wa-main(title="highscores")
 </template>
 
 <style lang="scss" scoped>
-// .wa-highscores {
-//   border: 1px solid var(--c-grey-lighter);
-// }
 </style>

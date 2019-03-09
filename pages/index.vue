@@ -1,10 +1,10 @@
 <script>
-import WaButtonPlay from '~/components/button-play'
+import QButtonPlay from '~/components/button-play'
 
 export default {
-  name: `aw-page-index`,
+  name: `q-page-index`,
   components: {
-    WaButtonPlay,
+    QButtonPlay,
   },
   head: {
     title: `welcome`,
@@ -13,7 +13,7 @@ export default {
 </script>
 
 <template lang="pug">
-wa-main(title="Da Movie Quiz")
+q-main(title="Da Movie Quiz")
   article
     | You should answer correctly to the questions.
     br
@@ -21,7 +21,7 @@ wa-main(title="Da Movie Quiz")
     br
     | …and make it to the Highscores!! (maybe)
   p
-    wa-button-play play!
+    q-button-play play!
   p
     nuxt-link(to="/highscores") highscores
 </template>

@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: `wa-layout-default`,
+  name: `q-layout-default`,
 }
 </script>
 

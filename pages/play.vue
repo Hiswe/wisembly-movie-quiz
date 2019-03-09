@@ -12,7 +12,7 @@ import {
 } from '~/store/game'
 
 export default {
-  name: `aw-page-play`,
+  name: `q-page-play`,
   head: {
     title: `play`,
   },
@@ -64,14 +64,14 @@ export default {
 </script>
 
 <template lang="pug">
-wa-main(title="play")
+q-main(title="play")
   p {{ remainingTime }}
   p score: {{ score }}
   p(v-if="isLoading") …loading…
   div(v-if="question")
     p id: {{ question.id }}
     p {{ question.text }}
-    button(@click="answerYes" :disabled="isLoading") YES
-    button(@click="answerNo" :disabled="isLoading") NO
+    q-button(@click="answerYes" :disabled="isLoading") YES
+    q-button(@click="answerNo" :disabled="isLoading" secondary) NO
   button(type="button" @click="rageQuit") rage quite
 </template>
