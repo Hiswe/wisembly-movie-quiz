@@ -18,6 +18,7 @@ export default {
   head: {
     title: `game end`,
   },
+  transition: `page`,
   data() {
     return {
       name: ``,

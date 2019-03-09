@@ -32,9 +32,9 @@ export const getters = {
     return state.duration !== false
   },
   [GAME_GETTER_LAST_QUESTION](state) {
-    const cannotDisplayQuestion = state.isLoading || !state.questions.length
+    const cannotDisplayQuestion = state.isLoading && !state.questions.length
     if (cannotDisplayQuestion) return false
-    return state.questions[state.questions.length - 1]
+    return state.questions.slice(-1)[0]
   },
   [GAME_GETTER_SCORE](state) {
     return state.questions

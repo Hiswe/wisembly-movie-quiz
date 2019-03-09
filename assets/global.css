@@ -20,6 +20,8 @@
     'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
     'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier,
     monospace;
+
+  --page-transition: 0.2s;
 }
 
 *,
@@ -43,7 +45,6 @@ body {
 }
 
 body {
-  padding: 0 var(--gutter) var(--gutter);
   line-height: 1.5;
 }
 /* prevent zooming on double-tap
@@ -63,4 +64,27 @@ select {
 a {
   text-decoration: none;
   color: var(--c-success);
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition-duration: var(--page-transition);
+}
+
+.page-enter-active {
+  transition-delay: var(--page-transition);
+}
+.page-enter-active,
+.page-leave-active {
+  transition-property: opacity;
+  transition-duration: var(--page-transition);
+}
+
+.page-enter-active {
+  transition-delay: var(--page-transition);
+}
+
+.page-enter,
+.page-leave-active {
+  opacity: 0;
 }

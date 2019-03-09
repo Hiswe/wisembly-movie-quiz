@@ -20,7 +20,20 @@ main.q-main(role="main")
 <style lang="scss" scoped>
 .q-main {
   text-align: center;
-  max-width: 600px;
+  max-width: 550px;
   margin: 0 auto;
+  min-height: 100vh;
+  padding: 0 var(--gutter) var(--gutter);
+  display: flex;
+  flex-direction: column;
+}
+.q-main__title {
+  margin: 0;
+  padding: var(--gutter) 0;
+}
+.q-main__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
 }
 </style>

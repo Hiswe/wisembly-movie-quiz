@@ -15,6 +15,7 @@ export default {
   head: {
     title: `play`,
   },
+  transition: `page`,
   data() {
     return {
       intervalID: false,
@@ -66,19 +67,25 @@ export default {
 q-main(title="play")
   p
     a(href="#venere" @click.prevent="rageQuit") rage quit
+
   header.game-header
     dl.game-header__item
       dt.game-header__text remaining:
       dd.game-header__value {{ duration | duration }}
-
     dl.game-header__item
       dt.game-header__text score:
       dd.game-header__value {{ score | number }}
-  p(v-if="isLoading") …loading…
+
   template(v-if="question")
     dl.question
-      dt.question__text-container: div.question__text(v-html="question.text")
-      dd.question__image: img(:src="question.image")
+      transition(name="fade" mode="out-in")
+        dt.question__text-container(:key="question.id")
+          .question__text(v-html="question.text")
+      transition(name="fade" mode="out-in")
+        dd.question__image(
+          :key="question.id"
+          :style="{'background-image': `url(${question.image})`}"
+        )
     .quiz-actions
       q-button(@click="answerYes" :disabled="isLoading" big) YES
       q-button(@click="answerNo" :disabled="isLoading" secondary big) NO
@@ -105,9 +112,11 @@ q-main(title="play")
   margin: 0;
   font-size: 1.35em;
   font-weight: bold;
+  color: var(--c-accent);
 }
 
 .question {
+  flex: 1 1 auto;
   margin-top: var(--gutter);
   display: flex;
   grid-template-columns: repeat(2, 1fr);
@@ -116,11 +125,12 @@ q-main(title="play")
   border-radius: var(--border-radius);
 }
 .question__text-container {
+  flex: 1 1 auto;
   width: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2em;
+  font-size: 1.85em;
   padding: var(--gutter);
 }
 .question__text {
@@ -129,13 +139,10 @@ q-main(title="play")
 .question__image {
   width: 50%;
   margin: 0;
-  object-fit: cover;
-
-  img {
-    display: block;
-    height: 100%;
-    width: 100%;
-  }
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: black;
 }
 .quiz-actions {
   display: grid;
@@ -145,5 +152,14 @@ q-main(title="play")
 }
 hr {
   margin: var(--gutter) 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

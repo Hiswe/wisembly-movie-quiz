@@ -8,6 +8,7 @@ export default {
   head: {
     title: `Highscores`,
   },
+  transition: `page`,
   async fetch(nuxtCtx) {
     const { store } = nuxtCtx
     await store.dispatch(`${HIGHSCORES}/${HIGHSCORES_LIST}`)

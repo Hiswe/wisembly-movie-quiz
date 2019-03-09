@@ -6,6 +6,7 @@ export default {
   components: {
     QButtonPlay,
   },
+  transition: `page`,
   head: {
     title: `welcome`,
   },
