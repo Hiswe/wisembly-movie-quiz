@@ -6,7 +6,6 @@ import {
   GAME_QUIT,
   GAME_TICK,
   GAME_ANSWER,
-  GAME_GETTER_REMAINING_TIME,
   GAME_GETTER_LAST_QUESTION,
   GAME_GETTER_SCORE,
 } from '~/store/game'
@@ -29,12 +28,12 @@ export default {
   },
   computed: {
     ...mapGetters(GAME, {
-      remainingTime: GAME_GETTER_REMAINING_TIME,
       question: GAME_GETTER_LAST_QUESTION,
       score: GAME_GETTER_SCORE,
     }),
     ...mapState(GAME, {
       isLoading: state => state.isLoading,
+      duration: state => state.duration,
     }),
   },
   methods: {
@@ -65,8 +64,8 @@ export default {
 
 <template lang="pug">
 q-main(title="play")
-  p {{ remainingTime }}
-  p score: {{ score }}
+  p {{ duration | duration }}
+  p score: {{ score | number }}
   p(v-if="isLoading") …loading…
   div(v-if="question")
     p id: {{ question.id }}

@@ -7,7 +7,7 @@ const config = rc(`quiz`, {
 export default {
   css: [`@/assets/global.css`],
   modules: [`@nuxtjs/axios`],
-  plugins: [`@/plugins/global-components.js`],
+  plugins: [`@/plugins/global-components.js`, `@/plugins/vue-filters.js`],
   router: {
     middleware: [`state-route-redirections`],
   },

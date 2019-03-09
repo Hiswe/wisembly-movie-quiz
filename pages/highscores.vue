@@ -25,11 +25,11 @@ export default {
 wa-main(title="highscores")
   p
     nuxt-link(to="/") home
-  p(v-if="isLoading") …loading…
+  p(v-if="isLoading  && !highscores.length") …loading…
   ol(v-if="!isLoading && highscores.length")
     li(v-for="highscore in highscores" :key="highscore.id")
       span {{highscore.name}}
-      span {{highscore.score}}
+      span {{highscore.score | number }}
 </template>
 
 <style lang="scss" scoped>

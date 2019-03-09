@@ -1,7 +1,4 @@
 import Vue from 'vue'
-// this is overkill for a simple formating
-// could be optimized later
-import { Duration } from 'luxon'
 
 import {
   HIGHSCORES,
@@ -22,7 +19,6 @@ export const state = () => {
 }
 
 export const GAME_GETTER_HAS_GAME = `GAME_GETTER_HAS_GAME`
-export const GAME_GETTER_REMAINING_TIME = `GAME_GETTER_REMAINING_TIME`
 export const GAME_GETTER_LAST_QUESTION = `GAME_GETTER_LAST_QUESTION`
 export const GAME_GETTER_SCORE = `GAME_GETTER_SCORE`
 
@@ -34,10 +30,6 @@ export const GAME_QUIT = `GAME_QUIT`
 export const getters = {
   [GAME_GETTER_HAS_GAME](state) {
     return state.duration !== false
-  },
-  [GAME_GETTER_REMAINING_TIME](state) {
-    if (typeof state.duration !== `number`) return `00:00`
-    return Duration.fromObject({ seconds: state.duration }).toFormat(`mm:ss`)
   },
   [GAME_GETTER_LAST_QUESTION](state) {
     const cannotDisplayQuestion = state.isLoading || !state.questions.length

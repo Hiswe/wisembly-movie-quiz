@@ -58,6 +58,7 @@ q-main(title="That's all Folks")
 </template>
 
 <style lang="scss" scoped>
+// fieldset elements don't support `flex` display property
 .q-fieldset {
   max-width: 300px;
   display: flex;
