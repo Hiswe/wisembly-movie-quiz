@@ -13,6 +13,7 @@
     "dev:back": "nodemon api-server/index.js --ignore *async-db.json",
     "dev:front": "nuxt",
     "get-api-data": "node bin/fetch-movie-data.js",
+    "start": "yarn dev",
     "toc": "doctoc *.md"
   },
   "dependencies": {
