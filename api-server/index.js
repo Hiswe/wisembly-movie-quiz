@@ -37,7 +37,9 @@ app.use(async function handleApiError(ctx, next) {
       error: true,
       status,
       message,
-      stacktrace: err.stacktrace || err.stack || false,
+    }
+    if (config.isDev) {
+      ctx.body.stacktrace = err.stacktrace || err.stack || false
     }
     ctx.app.emit(`error`, err, ctx)
   }
@@ -52,6 +54,11 @@ app.use(cors({}))
 
 const apiRouter = new Router()
 
+apiRouter.get(`/`, ctx => {
+  ctx.body = {
+    message: `welcome to the API`,
+  }
+})
 apiRouter.get(`/highscores`, highscores.list)
 apiRouter.post(`/highscores`, highscores.create)
 apiRouter.get(`/questions`, questions.readRandom)
@@ -60,6 +67,10 @@ apiRouter.put(`/questions/:id`, questions.answerQuestion)
 
 app.use(apiRouter.routes())
 app.use(apiRouter.allowedMethods())
+
+app.use((ctx, next) => {
+  ctx.throw(404, `not found`, { message: `the API doesn't support this route` })
+})
 
 //----- LAUNCH
 
